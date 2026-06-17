@@ -1,0 +1,79 @@
+Line 18: result = add(num1);
+Error: Too few arguments. Function 'add' requires 2 parameters but only 1 is passed.
+Correction: result = add(num1, num2);
+
+Line 24: avg = average(70,80);
+Error: Too few arguments. Function 'average' requires 3 parameters but only 2 are passed.
+Correction: avg = average(70, 80, 90);
+
+Line 41: swap(x,y);
+Error: Pass by value issue. The 'swap' function takes copies, so numbers won't actually change in main(). It needs pointers to swap original values.
+Correction: Change function to accept pointers 'swap(&x, &y);' and update its definition.
+
+Line 65: calculateGrade(marks);
+Error: Implicit declaration / Missing function. 'calculateGrade' is called but it is neither declared nor defined anywhere in the file.
+Correction: Define a calculateGrade function or remove this line.
+
+Line 71: area = circleArea(5);
+Error: Implicit declaration / Missing function. 'circleArea' is called but it is completely missing from the file.
+Correction: Define a circleArea function or remove this line.
+
+Line 77: total = sumArray();
+Error: Implicit declaration / Missing function. 'sumArray' is called but it is completely missing from the file.
+Correction: Define a sumArray function or remove this line.
+
+Line 83: displayResult();
+Error: Implicit declaration / Missing function. 'displayResult' is called but it is completely missing from the file.
+Correction: Define a displayResult function or remove this line.
+
+Line 97: return (a + b + c) / 3;
+Error: Integer division issue. The parameters and 3 are integers, so the fractional part is truncated before returning as a float.
+Correction: return (a + b + c) / 3.0;
+
+Line 104: if(n == 0) return 0;
+Error: Logical bug in factorial recursion. If base case returns 0, the final result of any factorial calculation becomes 0.
+Correction: if(n == 0 || n == 1) return 1;
+
+Line 122: if(a > b) return b; else return a;
+Error: Logical error. The function is named 'maximum' but it returns the smaller value.
+Correction: if(a > b) return a; else return b;
+
+Line 135: return fibonacci(n) + fibonacci(n-1);
+Error: Infinite recursion stack overflow. Calling fibonacci(n) inside itself with the exact same argument 'n' creates an endless loop.
+Correction: return fibonacci(n-1) + fibonacci(n-2);
+
+Line 144: return marks / total * 100;
+Error: Integer division trap. 'marks / total' results in 0 if marks < total, making percentage always 0.
+Correction: return (float)marks / total * 100;
+
+Line 153: return;
+Error: Return type mismatch. Function 'simpleInterest' is declared to return a float, but an empty return statement is used.
+Correction: return si;
+
+Line 167: for(int i=1; i<exp; i++)
+Error: Flawed power calculation loop. The loop runs 'exp-1' times instead of 'exp' times, resulting in a wrong power computation.
+Correction: for(int i=0; i<exp; i++)
+
+Line 181: while(n > 0) { ... } (Missing Return)
+Error: Control reaches end of non-void function. 'reverseNumber' is declared to return an int but has no return statement.
+Correction: Add 'return rev;' at the end of the function.
+
+Line 204: if(n % i == 0) return 1;
+Error: Broken prime checking logic. If a factor is found, it returns 1 (True), which means the function marks composite numbers as prime.
+Correction: Change it to return 0 when a factor is found, and return 1 at the end of the loop.
+
+Line 222: for(int i=0; i<=size; i++)
+Error: Array index out of bounds. The loop runs up to index 'size', which accesses memory outside the valid array range (0 to size-1).
+Correction: Change the loop condition to i < size.
+
+Line 229: return recursiveDemo(n+1);
+Error: Infinite recursive loop. The function calls itself continuously with an incremented value without any base case, leading to a quick stack overflow crash.
+Correction: Add a valid termination base condition.
+
+Line 239: return length + width;
+Error: Formula error. The function claims to calculate 'rectangleArea' but adds the dimensions together instead of multiplying them.
+Correction: return length * width;
+
+Lines 138-141, 156-161, 234-237, 242-249: (printMessage, displayMenu, greet, square, cube)
+Error: Redundant code warning. Multiple functions are defined at the bottom but are never called anywhere inside main().
+Correction: Either call them inside main() or remove them if they aren't part of the assignment requirements.

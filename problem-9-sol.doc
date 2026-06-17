@@ -1,0 +1,87 @@
+Line 14: printf("%d\n", *ptr1);
+Error: Dereferencing uninitialized pointer. 'ptr1' has been declared but not assigned any valid memory address, leading to a potential segmentation fault or garbage reading.
+Correction: Initialize the pointer first: ptr1 = &x; before dereferencing.
+
+Line 18: *ptr2 = 100;
+Error: Dereferencing a NULL pointer. 'ptr2' is explicitly set to NULL, so trying to write a value to its address will result in an immediate runtime crash.
+Correction: Allocate memory or point it to a valid variable before assigning values.
+
+Line 26: ptr3++;
+Error: Pointer arithmetic out of bounds. Incrementing 'ptr3' moves it past the memory boundary of the variable 'x', so printing its value next reads invalid stack memory.
+Correction: Remove 'ptr3++;' to keep pointing to the safe bounds of 'x'.
+
+Line 34: printf("%d\n", *(ptr4 + 10));
+Error: Buffer overflow / Array index out of bounds. The array 'arr' only has 5 elements, but '(ptr4 + 10)' attempts to read the 10th index, causing undefined behavior.
+Correction: Access within limits, such as: printf("%d\n", *(ptr4 + 4));
+
+Line 44: printf("%d\n", *ptr5);
+Error: Use after free. The memory block pointed to by 'ptr5' has already been deallocated using free(), making any subsequent reads illegal.
+Correction: Move the printf statement before the free(ptr5); line.
+
+Line 53: ptr6 = NULL;
+Error: Memory leak. The dynamically allocated memory block for 'ptr6' is abandoned because the pointer is overwritten with NULL without being freed first.
+Correction: Call free(ptr6); before assigning NULL.
+
+Line 61: ptr7[i] = i;
+Error: Heap buffer overflow / Out of bounds write. Memory of only 5 bytes is allocated via malloc(5), but the loop runs 10 times, overwriting adjacent heap data.
+Correction: Allocate enough memory like ptr7 = malloc(10 * sizeof(int));
+
+Line 73: ptr8[3] = 40;
+Error: Heap array index out of bounds. 'ptr8' is allocated size for 3 integers (indexes 0 to 2), but index 3 attempts to write into unallocated heap space.
+Correction: Allocate space for 4 integers: ptr8 = malloc(4 * sizeof(int));
+
+Line 83: free(ptr9); free(ptr9);
+Error: Double free corruption crash. Freeing the same memory address twice consecutively corrupts the heap management structures and crashes the application.
+Correction: Remove the second free(ptr9); line entirely.
+
+Line 89: printf("%d\n", *ptr10);
+Error: Reading uninitialized heap memory. The pointer 'ptr10' is allocated memory, but no value is ever assigned to that memory before printing it.
+Correction: Assign a value like *ptr10 = 50; before the print statement.
+
+Line 97: for(int i=0; i<=5; i++)
+Error: Off-by-one heap overflow. The loop runs up to index 5, but memory is allocated for only 5 integers (valid indexes are 0 to 4).
+Correction: Change the loop condition to i < 5.
+
+Line 115: pptr = &value;
+Error: Incompatible pointer assignment assignment type mismatch. 'pptr' is a double pointer (int ), but it is assigned the address of a regular integer variable (int ).
+Correction: Use a temporary single pointer or match types: pptr = &ptr3; (where ptr3 is an int).
+
+Line 123: strcpy(name,"Programming");
+Error: Heap overflow buffer violation. The string "Programming" requires 12 bytes including the null character, but 'name' is only allocated 5 bytes via malloc.
+Correction: Increase malloc allocation size to at least 12: name = malloc(12);
+
+Line 133: ptr11++;
+Error: Pointer increment displacement. Incrementing 'ptr11' shifts its address forward, so dereferencing it on the next line reads unallocated memory instead of 123.
+Correction: Remove 'ptr11++;' or decrement it back before reading.
+
+Line 139: if(*ptr12 > 0)
+Error: Null pointer dereference crash. 'ptr12' is assigned to NULL, so trying to access its contents within the condition expression will crash the app.
+Correction: Ensure the pointer points to valid data before checking its dereferenced value.
+
+Line 153: ptr13[100] = 500;
+Error: Array index out of bounds boundary breach. The buffer has been allocated space for 100 integers (indexes 0 to 99), making index 100 invalid.
+Correction: Use a valid index within bounds, such as ptr13[99] = 500;
+
+Line 161: *ptr14 = 999;
+Error: Use after free memory corruption assignment. Setting a value to '*ptr14' after the memory chunk has been freed writes into unauthorized memory regions.
+Correction: Perform the value assignment before executing free(ptr14);
+
+Line 169: p = matrix;
+Error: Incompatible pointer type conversion assignment. Assigning a 2D array base address directly to a regular single pointer variable (int *) causes type mismatch.
+Correction: Use typecasting or change declaration to: p = &matrix[0][0];
+
+Line 171: printf("%d\n", *(p + 20));
+Error: Array out of bounds memory read. The matrix size is 3x3 which holds 9 elements total, but 'p + 20' tries to access the 20th sequential element.
+Correction: Access within 9 elements boundary, such as *(p + 8);
+
+Line 177: ptr15 = malloc(sizeof(int)); ptr15 = malloc(sizeof(int));
+Error: Memory leak via reallocation. Overwriting 'ptr15' with a second malloc call leaves the memory block from the first allocation dangling without being freed.
+Correction: Call free(ptr15); before allocating new memory onto the same pointer variable.
+
+Line 184-189: void swap(int *a, int *b) { temp = a; a = b; b = temp; }
+Error: Logic flaw inside pointer swap function. The code swaps the local pointer copies inside the function instead of swapping the values at those addresses.
+Correction: Change the swap logic inside the function to: int temp = *a; *a = *b; *b = temp;
+
+Line 193: for(int i=0; i<=size; i++)
+Error: Off-by-one array bounds error in print helper loop. The loop runs up to index 'size', which causes it to read one element past the actual boundary limit.
+Correction: Change the loop condition constraint to i < size.

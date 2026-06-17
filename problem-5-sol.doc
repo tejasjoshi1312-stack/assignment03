@@ -1,0 +1,94 @@
+/*
+Line 12: printf("Division Result = %d\n", a / b);
+Error: Division by zero. Variable b is 0, which causes a floating-point exception and crashes the program at runtime.
+Correction: Change b to a non-zero number before dividing.
+
+Line 16: *ptr1 = 50;
+Error: Null pointer dereference. ptr1 is explicitly set to NULL, so trying to assign a value to its memory location will crash the program.
+Correction: Allocate valid memory to ptr1 using malloc() before assigning a value.
+
+Line 20: arr[10] = 100;
+Error: Array index out of bounds. The array size is 5, meaning valid indexes are only 0 to 4. Index 10 accesses unauthorized memory.
+Correction: Use a valid index like arr[4] = 100;
+
+Line 24: *ptr2 = 200;
+Error: Uninitialized pointer / Wild pointer dereference. ptr2 is declared but points to a random memory location, writing to it causes undefined behavior or a crash.
+Correction: Initialize ptr2 with a valid address or allocate memory before using it.
+
+Line 28: strcpy(name, "Programming");
+Error: Buffer overflow. The string "Programming" requires 12 bytes including the null terminator, but the destination array 'name' only has a size of 5.
+Correction: Increase the size of the char array to at least char name[12];
+
+Line 34: printf("%d\n", *ptr3);
+Error: Reading from an uninitialized pointer. ptr3 has no valid address, so trying to read its content fetches garbage data or crashes.
+Correction: Assign ptr3 to a valid integer variable's address before printing.
+
+Line 40: fscanf(fp, "%d", &a);
+Error: Null pointer dereference risk. If the file "unknown.txt" does not exist, fopen returns NULL. Calling fscanf on a NULL file pointer will crash the program.
+Correction: Add an if condition to check if (fp != NULL) before performing file operations.
+
+Line 46: strcpy(ptr4, "Computer Science");
+Error: Buffer overflow in heap memory. Only 5 bytes were allocated using malloc, but a 17-byte string is being copied into it.
+Correction: Allocate enough space like char *ptr4 = malloc(20);
+
+Line 52: printf("%c\n", ptr4[0]);
+Error: Use-after-free error. Accessing memory using ptr4 after it has already been released by free() leads to dangling pointer issues.
+Correction: Move the printf statement before the free(ptr4); line.
+
+Line 58: free(ptr5);
+Error: Double free error. The program tries to free the same pointer ptr5 twice consecutively, which corrupts the heap management memory.
+Correction: Remove the duplicate free(ptr5); statement.
+
+Line 64: int result = x % y;
+Error: Modulo by zero exception. The variable y is 0, and performing a modulo operation with 0 results in an immediate runtime crash.
+Correction: Ensure y is initialized to a non-zero integer.
+
+Line 68: strcat(str1, "WorldProgramming");
+Error: Buffer overflow during string concatenation. 'str1' has only 10 bytes, but appending "WorldProgramming" exceeds its capacity.
+Correction: Increase the size of str1 to at least char str1[30]; to hold the concatenated text.
+
+Line 76: numbers[i] = i;
+Error: Heap memory out of bounds access. The loop runs up to index 9, but malloc only allocated space for 3 integers.
+Correction: Change the loop condition to i < 3 or allocate more memory using malloc(10 * sizeof(int)).
+
+Line 83: matrix[5][5] = 100;
+Error: Multidimensional array index out of bounds. The matrix size is 3x3, so valid row/column indexes are only 0 to 2.
+Correction: Access within bounds like matrix[2][2] = 100;
+
+Line 87: printf("%d\n", ptr6[0]);
+Error: Null pointer dereference. Trying to access an element of a pointer that is set to NULL causes an instant segmentation fault.
+Correction: Ensure ptr6 points to a valid allocated array before accessing elements.
+
+Line 91: gets(password);
+Error: Severe security risk and potential buffer overflow. The gets() function does not check boundaries, entering a string longer than 7 characters will corrupt the stack memory.
+Correction: Use the safer fgets(password, sizeof(password), stdin); instead.
+
+Line 101: *ptr7 = 1000;
+Error: Writing to a dangling pointer. Trying to modify memory using ptr7 after calling free(ptr7) causes undefined behavior.
+Correction: Perform assignments only before releasing the memory with free().
+
+Line 105: printf("Age = %d\n", age);
+Error: Using an uninitialized local variable. 'age' is declared but never assigned a value, so it prints unpredictable garbage memory data.
+Correction: Initialize age to a value before printing, like int age = 19;
+
+Line 109: arr[index] = 50;
+Error: Negative array index error. Index is set to -1, which attempts to write to memory locations outside and before the array boundaries.
+Correction: Set index to a valid non-negative integer within the array size.
+
+Line 113: if(*ptr8 > 0)
+Error: Reading from an uninitialized wild pointer. ptr8 doesn't point to any allocated memory, causing a runtime crash when evaluated.
+Correction: Initialize ptr8 with a valid address before checking the condition.
+
+Line 118: printf("%s\n", text);
+Error: Printing a NULL pointer. Passing a NULL pointer to %s specifier in printf causes undefined behavior or a crash depending on the compiler.
+Correction: Point 'text' to a valid string literal before printing.
+
+Line 124: hugeArray = malloc(size * sizeof(int));
+Error: Memory allocation failure risk. Attempting to allocate an extremely huge size (1 billion integers) might fail if the system runs out of memory, causing hugeArray to be NULL.
+Correction: Check if (hugeArray != NULL) before trying to write data to hugeArray[0].
+
+Line 132: ptr9++;
+Error: Infinite loop with continuous pointer arithmetic. Incrementing ptr9 inside a while(1) loop without a break statement runs endlessly, never reaching the end of the program.
+Correction: Add a termination condition or a break statement inside the loop.
+
+*/

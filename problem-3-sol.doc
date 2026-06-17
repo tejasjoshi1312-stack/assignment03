@@ -1,0 +1,119 @@
+Line 8: int age = "Twenty";
+Error: Data type mismatch. Cannot assign a string literal ("Twenty") to an integer variable.
+Correction: int age = 20;
+
+Line 14: char grade = "A";
+Error: Invalid initialization. Double quotes (" ") are for strings. A single character must use single quotes (' ').
+Correction: char grade = 'A';
+
+Line 16: printf("%d\n", salary);
+Error: Wrong format specifier. 'salary' is a float, so it requires %f instead of %d.
+Correction: printf("%f\n", salary);
+
+Line 18: printf("%f\n", marks);
+Error: Wrong format specifier. 'marks' is an integer, so it requires %d instead of %f.
+Correction: printf("%d\n", marks);
+
+Line 22: total = marks + score;
+Error: Undeclared identifier. Variable 'score' is used but has not been declared anywhere in the code.
+Correction: Declare 'int score = 0;' before using it.
+
+Line 25: int x = 20;
+Error: Redefinition error. Variable 'x' is being declared again in the same scope.
+Correction: Remove the 'int' keyword to reassign it: x = 20;
+
+Line 27: 100 = x;
+Error: L-value error. You cannot assign a variable's value to a constant literal (100).
+Correction: x = 100;
+
+Line 31: printf("%s\n", num);
+Error: Wrong format specifier. 'num' is an integer, but %s is used for strings, which will cause a crash.
+Correction: printf("%d\n", num);
+
+Line 35: printf("%d\n", pi);
+Error: Wrong format specifier. 'pi' is a float, so it should use %f instead of %d.
+Correction: printf("%f\n", pi);
+
+Line 39: arr[2.5] = 100;
+Error: Array index error. Array subscripts/indexes must be integers, a floating-point value (2.5) is invalid.
+Correction: arr[2] = 100;
+
+Line 41: char ch = 65.5;
+Error: Warning/Semantic issue. Assigning a floating-point number to a char variable causes loss of data.
+Correction: char ch = 65;
+
+Line 45: result = add(10);
+Error: Too few arguments. Function 'add' requires 2 parameters but only 1 is passed.
+Correction: result = add(10, 20);
+
+Line 51: avg = average(10,20);
+Error: Too few arguments. Function 'average' requires 3 parameters but only 2 are passed.
+Correction: avg = average(10, 20, 30);
+
+Line 55: int temperature = "35";
+Error: Type mismatch. Cannot assign a string literal to an integer variable.
+Correction: int temperature = 35;
+
+Line 59: float discount = "10.5";
+Error: Type mismatch. Cannot assign a string literal to a float variable.
+Correction: float discount = 10.5;
+
+Line 65: name = "Robil";
+Error: Invalid array assignment. In C, you cannot directly assign a string literal to an already declared char array using '='.
+Correction: strcpy(name, "Robil");
+
+Line 71: count = totalMarks + 10;
+Error: Undeclared identifier. 'totalMarks' is not declared anywhere in the program.
+Correction: Declare 'int totalMarks = 0;' before using it.
+
+Line 81: printf("%d\n", rate);
+Error: Wrong format specifier. 'rate' is a float, so it requires %f instead of %d.
+Correction: printf("%f\n", rate);
+
+Line 89: sum = add(a,b,c);
+Error: Too many arguments. Function 'add' only accepts 2 parameters but 3 are passed. Also, 'c' is undeclared.
+Correction: sum = add(a, b);
+
+Line 95: area = 3.14 * radius * radius;
+Error: Type mismatch warning. The calculation results in a float value, but 'area' is declared as an integer, causing loss of data.
+Correction: float area = 3.14 * radius * radius;
+
+Line 101: if(studentMarks = 100)
+Error: Logical error. Used assignment operator (=) instead of the comparison operator (==) inside the if statement.
+Correction: if(studentMarks == 100)
+
+Line 106: int size = "Large";
+Error: Type mismatch. Cannot assign a string literal to an integer variable.
+Correction: char size[] = "Large";
+
+Line 112: printf("%d\n", percentage);
+Error: Wrong format specifier. 'percentage' is a float, so it requires %f instead of %d.
+Correction: printf("%f\n", percentage);
+
+Line 116: arr2["five"] = 100;
+Error: Array index error. A string literal cannot be used as an array subscript index.
+Correction: arr2[5] = 100;
+
+Line 126: case "2":
+Error: Case label error. In a switch statement matching an integer ('choice'), case labels must be integer or character constants, not string literals.
+Correction: case 2:
+
+Line 132: finalResult = multiply(10,20);
+Error: Implicit declaration / Undefined function. 'multiply' function has not been declared or defined anywhere.
+Correction: Define a multiply function or remove this line.
+
+Line 138: printf("%d\n", areaRect);
+Error: Wrong format specifier. 'areaRect' is a float, but %d is used to print it.
+Correction: printf("%f\n", areaRect);
+
+Line 148: avgMarks = average(marks1, marks2, marks3);
+Error: Type mismatch warning. 'average' function returns a float, but 'avgMarks' is declared as an int.
+Correction: float avgMarks = average(marks1, marks2, marks3);
+
+Line 154: printf("%d\n", value);
+Error: Undeclared identifier. Variable 'value' is used but has not been defined anywhere.
+Correction: printf("%d\n", data);
+
+Line 156: int employeeId = "EMP101";
+Error: Type mismatch. Cannot assign a string literal to an integer variable.
+Correction: char employeeId[] = "EMP101";

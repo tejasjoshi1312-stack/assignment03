@@ -1,0 +1,63 @@
+Line 13: if(num % 2 == 1)
+Error: Logical error. If remainder is 1, the number is odd, but the print statement says "Number is Even".
+Correction: Change the condition to if(num % 2 == 0) or swap the printf messages.
+
+Line 26-28: if(marks >= 90) printf("Grade B"); else if(marks >= 80) printf("Grade A");
+Error: Logical error in grading criteria. A student scoring above 90 gets Grade B, and above 80 gets Grade A, which is completely swapped.
+Correction: Change it to if(marks >= 90) printf("Grade A\n"); else if(marks >= 80) printf("Grade B\n");
+
+Line 48: if(age > 18) printf("Not Eligible for Voting\n");
+Error: Incorrect condition logic. A person above 18 is eligible to vote, but the code prints "Not Eligible".
+Correction: Change condition to if(age >= 18) and swap the messages to print "Eligible for Voting".
+
+Line 57: if(a > b) printf("Smaller Number = %d\n", a);
+Error: Wrong logic for finding the smaller number. If a is greater than b, then a cannot be the smaller number.
+Correction: Change the condition to if(a < b) to correctly print the smaller number.
+
+Line 69-74: if(y < largest) largest = y;
+Error: Logic flaw. To find the largest number, the conditions should check if the variables are greater than the current 'largest', but it checks for less than (<), which actually finds the smallest number.
+Correction: Change both conditions to use the greater than operator: if(y > largest) and if(z > largest).
+
+Line 84: average = totalMarks / subjects;
+Error: Integer division issue. Both 'totalMarks' and 'subjects' are integers, so the decimal part is discarded before assigning it to the float 'average'.
+Correction: Use typecasting like average = (float)totalMarks / subjects;
+
+Line 93: area = 2 * 3.14 * radius * radius;
+Error: Formula error. The formula used is for twice the area, or is a mix-up with circumference (2pir). The correct area of a circle is pi * r * r.
+Correction: Change the formula to area = 3.14 * radius * radius;
+
+Line 104: bonus = salary * 0.02; else bonus = salary * 0.20;
+Error: Flawed business logic. A person with a higher salary (>30000) is getting a tiny 2% bonus, while a lower salary gets a massive 20% bonus.
+Correction: Swap the multipliers: bonus = salary * 0.20; else bonus = salary * 0.02;
+
+Line 113-126: case 1: printf("February\n"); ... case 4: printf("May\n");
+Error: Wrong switch-case mapping. Month 1 is mapped to February, Month 4 is mapped to May, shifting all calendar months by one.
+Correction: Change case 1 to print "January", case 2 to "February", case 3 to "March", and case 4 to "April".
+
+Line 132: int isPrime = 1;
+Error: Logical logic flow error. Inside the loop, if a factor is found, isPrime remains 1. At the end, if(isPrime) prints "Not Prime", which means every single number will be printed as "Not Prime".
+Correction: Inside the if block, set isPrime = 0; before the break statement.
+
+Line 150: discount = 5; finalAmount = purchaseAmount + discount;
+Error: Mathematical logic error. The discount value is being added to the purchase amount instead of being subtracted from it.
+Correction: Change the formula to finalAmount = purchaseAmount - discount;
+
+Line 161: sum = i;
+Error: Missing accumulation logic. The loop just overwrites the value of 'sum' with 'i' in every iteration instead of adding it, so it will only print the last value (10).
+Correction: Change it to sum += i; or sum = sum + i;
+
+Line 170: if(temperature < 40) printf("Cold Weather\n");
+Error: Out of touch threshold logic. 35 degrees is hot weather, but because the condition checks for < 40, it will print "Cold Weather".
+Correction: Adjust the threshold value, for example: if(temperature < 20).
+
+Line 179: if(grade == 'A') printf("Average Performance\n");
+Error: Mismatched message logic. An 'A' grade signifies excellent performance, but the program prints "Average".
+Correction: Change the print message to printf("Excellent Performance\n"); and swap with the else block.
+
+Line 189: rectangleArea = length + width;
+Error: Formula error. The formula for the area of a rectangle is length multiplied by width, but the code adds them together.
+Correction: Change the formula to rectangleArea = length * width;
+
+Line 196: if(percentage >= 60) printf("Fail\n");
+Error: Reversed passing criteria logic. A student scoring 60% or above should pass, but the condition prints "Fail".
+Correction: Change the print statements to print "Pass" in the if block and "Fail" in the else block.

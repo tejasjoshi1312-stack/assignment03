@@ -1,0 +1,63 @@
+Line 13: extern float companyProfit;
+Error: Linker Error. Variable 'companyProfit' is declared as extern, but it is never defined anywhere else in the file.
+Correction: Define 'float companyProfit = 0.0;' globally outside main.
+
+Line 29: calculateSalary(50000);
+Error: Linker Error. The function 'calculateSalary' is declared and called, but its body or definition is missing in the file.
+Correction: Add the definition for 'void calculateSalary(float basic) { }' at the bottom.
+
+Line 31: printStudentDetails();
+Error: Linker Error. The function 'printStudentDetails' is declared and called, but its definition is completely missing.
+Correction: Add the definition for 'void printStudentDetails() { }' at the bottom.
+
+Line 37: showResult();
+Error: Linker Error. The function 'showResult' is declared and called, but its definition is completely missing.
+Correction: Add the definition for 'void showResult() { }' at the bottom.
+
+Line 39: float avg = calculateAverage(70,80,90);
+Error: Linker Error. The function 'calculateAverage' is declared and called, but its definition is completely missing.
+Correction: Add the definition for 'float calculateAverage(int a, int b, int c) { return (a+b+c)/3.0f; }' at the bottom.
+
+Line 45: generateReport();
+Error: Syntax / Linker Error. 'generateReport' is called inside main without any prior function declaration (prototype) or definition.
+Correction: Add 'void generateReport();' prototype before main and define it below.
+
+Line 47: displayEmployee();
+Error: Syntax / Linker Error. 'displayEmployee' is called inside main without any function declaration or definition.
+Correction: Add 'void displayEmployee();' prototype before main and define it below.
+
+Line 49: processData();
+Error: Syntax / Linker Error. 'processData' is called inside main without any function declaration or definition.
+Correction: Add 'void processData();' prototype before main and define it below.
+
+Line 51: saveRecord();
+Error: Syntax / Linker Error. 'saveRecord' is called inside main without any function declaration or definition.
+Correction: Add 'void saveRecord();' prototype before main and define it below.
+
+Line 53: loadRecord();
+Error: Syntax / Linker Error. 'loadRecord' is called inside main without any function declaration or definition.
+Correction: Add 'void loadRecord();' prototype before main and define it below.
+
+Line 55: printInvoice();
+Error: Syntax / Linker Error. 'printInvoice' is called inside main without any function declaration or definition.
+Correction: Add 'void printInvoice();' prototype before main and define it below.
+
+Line 57: calculateTax();
+Error: Syntax / Linker Error. 'calculateTax' is called inside main without any function declaration or definition.
+Correction: Add 'void calculateTax();' prototype before main and define it below.
+
+Line 59: validateUser();
+Error: Syntax / Linker Error. 'validateUser' is called inside main without any function declaration or definition.
+Correction: Add 'void validateUser();' prototype before main and define it below.
+
+Line 61: sendNotification();
+Error: Syntax / Linker Error. 'sendNotification' is called inside main without any function declaration or definition.
+Correction: Add 'void sendNotification();' prototype before main and define it below.
+
+Line 63: generateCertificate();
+Error: Syntax / Linker Error. 'generateCertificate' is called inside main without any function declaration or definition.
+Correction: Add 'void generateCertificate();' prototype before main and define it below.
+
+Lines 89-166: (employeeSection, studentSection, adminSection, etc.)
+Error: Redundant / Unused Code Warning. There are around 15 functions defined at the bottom (like employeeSection, studentSection, addNumbers, welcome, etc.) that are never declared or called inside main().
+Correction: Either call these functions inside main() or remove them if they are not required.

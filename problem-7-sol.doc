@@ -1,0 +1,75 @@
+Line 10: for(int i=0; i<=5; i++)
+Error: Array index out of bounds. The array 'marks' has a size of 5 (indexes 0 to 4), but the loop goes up to index 5, which accesses garbage or unauthorized memory.
+Correction: Change the loop condition to i < 5.
+
+Line 25: average = total / 5;
+Error: Integer division issue. Both 'total' and 5 are integers, so the fractional decimal part is discarded before assigning it to the float 'average'.
+Correction: Use typecasting or float literal: average = (float)total / 5.0;
+
+Line 34: for(int i=1; i<=10; i++)
+Error: Array index out of bounds. The array 'numbers' has a size of 10 (indexes 0 to 9), but the loop runs from index 1 to 10, causing a boundary violation at index 10.
+Correction: Change the loop to for(int i=0; i<10; i++).
+
+Line 51: strcpy(name, "ComputerScience");
+Error: Buffer overflow. The string "ComputerScience" requires 16 bytes including the null terminator, but the destination array 'name' only has a size of 10.
+Correction: Increase array size to at least char name[16];.
+
+Line 59: city = "Delhi";
+Error: Invalid array assignment. You cannot directly assign a new string literal to an already declared character array using the '=' operator in C.
+Correction: Use strcpy(city, "Delhi"); instead.
+
+Line 69: if(str1 == str2)
+Error: Incorrect string comparison. The '==' operator compares the memory addresses of the arrays 'str1' and 'str2' instead of checking their contents.
+Correction: Use if(strcmp(str1, str2) == 0).
+
+Line 81: gets(password);
+Error: Dangerous function usage. The gets() function does not perform boundary checks and can easily cause a buffer overflow if the input exceeds 7 characters.
+Correction: Use fgets(password, sizeof(password), stdin);.
+
+Line 91: strcat(firstName, lastName);
+Error: Buffer overflow / Memory corruption. 'firstName' has a size of 20 and already contains "Robil" (5 bytes). Appending "Varshney" (8 bytes) requires more space than allocated when counting the final null terminator.
+Correction: Increase the size of firstName to char firstName[40];.
+
+Line 101: grade[0] = 'A'; grade[1] = '+';
+Error: Missing null terminator. The character array 'grade' is printed using %s, but it has not been null-terminated ('\0'), leading to garbage printing.
+Correction: Add grade[2] = '\0'; after assignments.
+
+Line 107: printf("%d\n", arr[-1]);
+Error: Negative array index. Index -1 attempts to access memory located before the boundary of the array 'arr', resulting in undefined behavior.
+Correction: Use a valid index like printf("%d\n", arr[0]);.
+
+Line 119: char email[15] = "student@gmail.com";
+Error: String initializer overflow. The string "student@gmail.com" requires 18 bytes including the null terminator, which exceeds the defined array size of 15.
+Correction: Change it to char email[20] = "student@gmail.com";.
+
+Line 127: scores[3] = 60;
+Error: Array index out of bounds. The array 'scores' is declared with a size of 3 (indexes 0 to 2), so index 3 writes into unallocated stack memory.
+Correction: Increase the size to int scores[4];.
+
+Line 135: char subject[10] = "Programming";
+Error: Character array overflow. The string "Programming" needs 12 bytes including the null terminator, but the array is constrained to 10 bytes.
+Correction: Change the size to char subject[15] = "Programming";.
+
+Line 146: if(username == "admin")
+Error: Flawed string comparison logic. This statement compares the base pointer address of the array 'username' with the address of the literal "admin".
+Correction: Use if(strcmp(username, "admin") == 0).
+
+Line 156: strcpy(mobile, "987654321012");
+Error: Buffer overflow. The string "987654321012" is 12 characters long and needs 13 bytes, which overflows the array 'mobile' that has a size of 10.
+Correction: Increase the size to char mobile[15];.
+
+Line 166: for(int i=0; i<=5; i++)
+Error: Array index out of bounds. The array 'attendance' has 5 elements (indexes 0 to 4), but the loop tries to access index 5 during its final iteration.
+Correction: Change the loop condition to i < 5.
+
+Line 174: printf("%c\n", course[20]);
+Error: Out of bounds access. The array 'course' has a size of 20, which means the maximum valid index is 19. Index 20 reads data outside the array bounds.
+Correction: Access a valid index like printf("%c\n", course[0]);.
+
+Line 180-184: college[0] = 'A'; ... college[4] = 'T';
+Error: Missing string terminator. The character array 'college' is treated as a string in printf using %s, but it lacks a null character '\0' at the end.
+Correction: Add college[5] = '\0'; before printing.
+
+Line 206: char section[3] = "IT-A";
+Error: String initialization boundary mismatch. The string "IT-A" is 4 characters long and needs 5 bytes in total, but the array 'section' is restricted to a size of 3.
+Correction: Change the declaration to char section[5] = "IT-A";.

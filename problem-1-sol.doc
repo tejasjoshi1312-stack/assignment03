@@ -1,0 +1,59 @@
+Line 8: int x = 10
+Error: Missing semicolon (;) at the end of the statement.
+Correction: int x = 10;
+
+Line 14: if(x = 10)
+Error: Used the assignment operator (=) instead of the comparison operator (==) inside the if condition.
+Correction: if(x == 10)
+
+Line 19: int marks = "Ninety";
+Error: Data type mismatch. Trying to assign a string literal ("Ninety") to an integer variable.
+Correction: char marks[] = "Ninety";
+
+Line 21: printf("%d\n", z);
+Error: Variable z is not declared anywhere in the program.
+Correction: printf("%d\n", x);
+
+Line 23: 100 = x;
+Error: L-value error. You cannot assign a variable's value to a constant literal (100).
+Correction: x = 100;
+
+Line 27: arr[10] = 50;
+Error: Array index out of bounds. The array size is 5, so the valid index range is only from 0 to 4.
+Correction: arr[4] = 50;
+
+Line 29: float *ptr = &x;
+Error: Pointer type mismatch. A float pointer cannot store the address of an int variable (x).
+Correction: int *ptr = &x;
+
+Line 31: printf("%f\n", x);
+Error: Wrong format specifier. %f is used for float, but x is an integer.
+Correction: printf("%d\n", x);
+
+Line 36: printf("%d\n", a/b);
+Error: Division by zero. Variable b is initialized to 0, which will cause a runtime crash.
+Correction: Change b to a non-zero value like int b = 2;
+
+Line 38: char ch = 'AB';
+Error: Invalid character constant. Single quotes (' ') can only hold a single character, not multiple.
+Correction: char ch = 'A';
+
+Line 40-43: if(x > y) printf... else printf...
+Error: Logical error. Both the if and else blocks print the exact same statement ("X is greater").
+Correction: Update the else block to printf("Y is greater");
+
+Line 47: show();
+Error: Function show is called but it is neither declared nor defined anywhere in the code.
+Correction: Remove this line or define the show() function.
+
+Line 49: while(x < 15);
+Error: Semicolon right after the while condition creates an infinite empty loop.
+Correction: Remove the semicolon like while(x < 15)
+
+Line 54 & 56: continue; and break;
+Error: Loop control statements cannot be used openly inside main() outside of a loop or switch block.
+Correction: Remove both statements.
+
+Line 58: int result = calculate(10);
+Error: Too few arguments passed to the function. The function calculate(int a, int b) requires 2 parameters.
+Correction: int result = calculate(10, 20);

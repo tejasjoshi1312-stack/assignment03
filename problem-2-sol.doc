@@ -1,0 +1,43 @@
+Line 10: int num2 = 20
+Error: Missing semicolon (;) at the end of the variable declaration.
+Correction: int num2 = 20;
+
+Line 22: if(choice == 1
+Error: Missing closing parenthesis ')' for the if condition.
+Correction: if(choice == 1)
+
+Line 34: else if(choice == 3))
+Error: Extra closing parenthesis ')' in the condition.
+Correction: else if(choice == 3)
+
+Line 51: for(int i=0; i<5; i++
+Error: Missing closing parenthesis ')' for the for loop condition.
+Correction: for(int i=0; i<5; i++)
+
+Line 58: while(choice > 0
+Error: Missing closing parenthesis ')' for the while loop condition.
+Correction: while(choice > 0)
+
+Line 67: while(choice > 5)
+Error: Missing semicolon (;) at the end of the do-while loop statement.
+Correction: while(choice > 5);
+
+Line 74: case 2
+Error: Missing colon (:) after the case value.
+Correction: case 2:
+
+Line 103: char grade = 'A;
+Error: Missing single quote (') to close the character literal.
+Correction: char grade = 'A';
+
+Line 107: int arr[5;
+Error: Missing closing square bracket ']' in the array declaration.
+Correction: int arr[5];
+
+Line 121: {
+Error: Opened a separate block but never closed it properly before the end of main, leading to dangling braces and scope mismatches.
+Correction: Remove this opening brace or close it where appropriate.
+
+Line 134: printf("End of Program\n")
+Error: Missing semicolon (;) at the end of the printf statement.
+Correction: printf("End of Program\n");
